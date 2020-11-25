@@ -1,5 +1,10 @@
 jQuery(document).ready(function($){    
-
+    $('[data-nav] > ul >li').hover(function(){
+        $(this).each(function(){
+          $('[data-nav] li').toggleClass('transp');
+        });
+        $(this).removeClass('transp');
+      })
 
     // // faq
     // $('[data-faq]').click(function(){
