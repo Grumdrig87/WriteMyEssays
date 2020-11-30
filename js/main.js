@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
       });
     }
     //nav
-    if ($(window).width() > 993 ) {
+    if ($(window).width > 993 ) {
       $('[data-nav] > ul >li').hover(function(){
         $(this).each(function(){
           $('[data-nav] li').toggleClass('transp');
@@ -64,14 +64,14 @@ jQuery(document).ready(function($){
         dots: true,
         speed: 300,
         slidesToShow: 2,
-        // responsive: [
-        // {
-        //     breakpoint: 1200,
-        //     settings: {
-        //     slidesToShow: 2
-        //     }
-        // },
-        // ]
+        responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+            slidesToShow: 1
+            }
+        },
+        ]
     });
     }
     if (jQuery('[data-talk]').length > 0) {
@@ -82,14 +82,6 @@ jQuery(document).ready(function($){
         arrows: false,
         slidesToShow: 4,
         variableWidth: true
-        // responsive: [
-        // {
-        //     breakpoint: 1200,
-        //     settings: {
-        //     slidesToShow: 2
-        //     }
-        // },
-        // ]
     });
     }
     var sliderItemsNum = $('[data-talk]').find('.slick-slide').not('.slick-cloned').length;
@@ -110,5 +102,30 @@ jQuery(document).ready(function($){
       $(this).toggleClass("open");
       $('[data-nav]').toggleClass("open");
       $('body').toggleClass('open');
+    });
+
+    //cookies
+
+    $(function() {
+      // Проверяем запись в куках о посещении
+      // Если запись есть - ничего не происходит
+         if (!$.cookie('hideModal')) {
+      // если cookie не установлено появится окно
+      // с задержкой 5 секунд
+        var delay_popup = 1000;
+        setTimeout("document.querySelector('[data-cookies]').style.display='inline-block'", delay_popup);
+         }
+         $.cookie('hideModal', true, {
+       // Время хранения cookie в днях
+        expires: 1,
+        path: '/'
+       });
+    });
+     
+    // Закрытие полосы cookie
+     
+     
+    $('.cookies__btn').click(function(){
+        $('[data-cookies]').fadeOut();
     });
 })
