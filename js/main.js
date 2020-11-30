@@ -17,13 +17,36 @@ jQuery(document).ready(function($){
         moreLink: '<a href="#">Read more</a>'
       });
     }
-    
-    $('[data-nav] > ul >li').hover(function(){
+    //nav
+    if ($(window).width() > 993 ) {
+      $('[data-nav] > ul >li').hover(function(){
         $(this).each(function(){
           $('[data-nav] li').toggleClass('transp');
         });
         $(this).removeClass('transp');
       });
+      var menuChild = $('[data-nav] > ul >li.menu-item-has-children');
+
+      $(menuChild).hover(function(){
+        $('body').toggleClass('open');
+      });
+    }
+    if ($(window).width() < 993 ) {
+      $('[data-nav] .menu-item-has-children > a').click( function(){
+        return false;
+      })
+    }
+
+      // fixed header
+      var body = jQuery('body');
+      jQuery(window).scroll(function() {
+          if (jQuery(this).scrollTop() > 40) {
+              body.addClass("header_fixed");
+          } else {
+              body.removeClass("header_fixed");
+          }
+      });
+
         //tabs
       $('[data-can]').on('click', function() {
           $(this).addClass('active').siblings().removeClass('active')
@@ -51,7 +74,28 @@ jQuery(document).ready(function($){
         // ]
     });
     }
-   
+    if (jQuery('[data-talk]').length > 0) {
+      $('[data-talk]').slick({
+        dots: true,
+        appendDots: $('[data-line]'),
+        speed: 300,
+        arrows: false,
+        slidesToShow: 4,
+        variableWidth: true
+        // responsive: [
+        // {
+        //     breakpoint: 1200,
+        //     settings: {
+        //     slidesToShow: 2
+        //     }
+        // },
+        // ]
+    });
+    }
+    var sliderItemsNum = $('[data-talk]').find('.slick-slide').not('.slick-cloned').length;
+    var dotWidth = $('[data-THelp]').width() / sliderItemsNum;
+    $('[data-line] ul li').css({'width': dotWidth});
+
     // faq
     if (jQuery('[data-faq]').length > 0) {
       $('[data-faq]').click(function(){
@@ -61,10 +105,10 @@ jQuery(document).ready(function($){
     }
     // burger
 
-    // $('[data-burger]').click(function(){
-    //   $('html').toggleClass("open");
-    //   $(this).toggleClass("open");
-    //   $('[data-nav]').toggleClass("open");
-    //   $('body').toggleClass('open');
-    // });
+    $('[data-burger]').click(function(){
+      $('html').toggleClass("open");
+      $(this).toggleClass("open");
+      $('[data-nav]').toggleClass("open");
+      $('body').toggleClass('open');
+    });
 })
