@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
       });
     }
     //nav
-    if ($(window).width > 993 ) {
+    if ($(window).width() > 993 ) {
       $('[data-nav] > ul >li').hover(function(){
         $(this).each(function(){
           $('[data-nav] li').toggleClass('transp');
@@ -36,7 +36,11 @@ jQuery(document).ready(function($){
         return false;
       })
     }
-
+    if ($(window).width() < 769 ) {
+      $('.footer__title').click( function(){
+        $(this).parent().find('ul').toggleClass('open');
+      })
+    }
       // fixed header
       var body = jQuery('body');
       jQuery(window).scroll(function() {
