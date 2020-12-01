@@ -2537,10 +2537,10 @@ color: #fff;
             justify-content: space-between;
 }
 .bl-info__left {
-    width: 65%;
+    width: 65.5%;
 }
 .bl-info__right {
-    width: 32%;
+    width: 31%;
 }
 
 .wp-block-image {
@@ -2576,7 +2576,7 @@ color: #fff;
 }
 .wp-block-quote {
     margin: 45px 0 40px;
-    padding: 26px 44px 0;
+    padding: 27px 49px 0;
     position: relative;
 }
 .wp-block-quote::before,
@@ -2590,12 +2590,12 @@ color: #fff;
 }
 .wp-block-quote::before {
     top: 0;
-    left: 0;
+    left: 4px;
 }
 
 .wp-block-quote:after {
-    right: 0;
-    bottom: 23px;
+    right: 5px;
+    bottom: 24px;
     -webkit-transform: rotateZ(180deg);
        -moz-transform: rotateZ(180deg);
         -ms-transform: rotate(180deg);
@@ -2606,7 +2606,7 @@ color: #fff;
     font-weight: 600;
     font-size: 16px;
     line-height: 170%;
-    margin-bottom: 24px;
+    margin-bottom: 24px !important;
 }
 .wp-block-quote cite {
     font-style: normal;
@@ -2751,11 +2751,6 @@ color: #fff;
     display: flex;
     padding: 0 8px;
     margin-bottom: 17px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
 }
 .bl-info__chat-img {
     width: 40px;
@@ -2776,7 +2771,7 @@ color: #fff;
 .bl-info__chat-tit {
     font-weight: 700;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 20px;
 }
 .bl-info__chat-name span {
     font-size: 10px;
@@ -2789,7 +2784,7 @@ color: #fff;
             border-radius: 8px;
     overflow: hidden;
     margin-bottom: 14px;
-    padding: 24px 50px 24px 24px;
+    padding: 19px 46px 24px 24px;
 }
 .bl-info__chat-m p {
     background: #FFFFFF;
@@ -2804,15 +2799,15 @@ color: #fff;
     -webkit-border-radius: 12px 12px 4px 4px;
        -moz-border-radius: 12px 12px 4px 4px;
             border-radius: 12px 12px 4px 4px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 .bl-info__chat-m p:nth-child(2) {
     -webkit-border-radius: 4px 4px 12px 4px;
        -moz-border-radius: 4px 4px 12px 4px;
             border-radius: 4px 4px 12px 4px;
-    margin-bottom: 16px;
-    max-width: 212px;
-    width: 80%;
+    margin-bottom: 11px;
+    max-width: 220px;
+    width: 94%;
 }
 .chat__btn {
     background: #2C2CEA;
@@ -2820,7 +2815,7 @@ color: #fff;
     font-weight: 700;
     font-size: 12px;
     line-height: 16px;
-    margin-left: 4px;
+    margin-left: 2px;
     -webkit-border-radius: 4px;
        -moz-border-radius: 4px;
             border-radius: 4px;
@@ -2864,4 +2859,23 @@ color: #fff;
 }
 .bl-info__chat-b svg {
     margin-right: 9px;
+}
+
+.related {
+    padding-top: 140px;
+    background: #000;
+}
+.related .title {
+    margin-bottom: 48px;
+    color: #fff;
+}
+.related__help .title-m {
+    color: #fff;
+}
+.related__help .blog__meta {
+    color: rgba(255, 255, 255, 0.5);
+}
+.related__wrap {
+    padding-bottom: 140px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

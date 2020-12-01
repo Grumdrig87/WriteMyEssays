@@ -132,4 +132,40 @@ jQuery(document).ready(function($){
     $('.cookies__btn').click(function(){
         $('[data-cookies]').fadeOut();
     });
-})
+
+      // sticky sidebar
+
+      $(function() {
+          var sidebar = $("[data-side]");
+          if (sidebar.length > 0) {
+              var offset = sidebar.offset(),
+                  topPadding = 150,
+                  sectHeight = $("[data-blwrap]").height(),
+                  headerHeight = $('[data-head]').height(),
+                  sidebarHeight = sidebar.height();
+              $(window).scroll(function() {
+                  if ($(window).scrollTop() + headerHeight > offset.top  && (sectHeight - sidebarHeight) > $(window).scrollTop()) {
+                      sidebar.stop().animate({
+                          marginTop: $(window).scrollTop() - offset.top + topPadding
+                      });
+                  }
+                  if ($(window).scrollTop() + headerHeight< offset.top) {
+                      sidebar.stop().animate({
+                          marginTop: 0
+                      });
+                  }
+                  if ((headerHeight + sectHeight - sidebarHeight) <= $(window).scrollTop()) {
+                      sidebar.stop().animate({
+                          marginTop: sectHeight - sidebarHeight
+                      });
+                  }
+              });
+          }
+      });
+
+      // adaptive
+      if ($(window).width() < 994) {
+        $('[data-blwrap]').before('<div class="adapt__auth"></div>');
+        $('[data-author]').appendTo('.adapt__auth');
+      }
+});
