@@ -57,7 +57,17 @@
     -o-transition: 0.8s;
     -moz-transition: 0.8s;
     transition: 0.8s;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
+  .header__nav > ul:first-child {
+    margin-right: 0;
+}
   .header__nav > ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
